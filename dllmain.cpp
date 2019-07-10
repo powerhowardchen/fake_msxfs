@@ -93,8 +93,6 @@ HRESULT extern __stdcall WFSExecute(HSERVICE hService, DWORD dwCommand, LPVOID l
 			PinKey->ulDigit = InputPinKeys[i];
 			PinKey->wCompletion = 0;
 		}
-
-		return WFS_SUCCESS;
 	}
 	else if (dwCommand == WFS_CMD_IDC_READ_RAW_DATA)
 	{
@@ -118,11 +116,9 @@ HRESULT extern __stdcall WFSExecute(HSERVICE hService, DWORD dwCommand, LPVOID l
 		buffer->fwWriteMethod = 0;
 
 		array[1] = 0;
-
-		return WFS_SUCCESS;
 	}
 
-	return WFS_ERR_INTERNAL_ERROR;
+	return WFS_SUCCESS;
 }
 
 HRESULT extern __stdcall WFSOpen(LPSTR lpszLogicalName, HAPP hApp, LPSTR lpszAppID, DWORD dwTraceLevel, DWORD dwTimeOut, DWORD dwSrvcVersionsRequired, LPWFSVERSION lpSrvcVersion, LPWFSVERSION lpSPIVersion, LPHSERVICE lphService)
