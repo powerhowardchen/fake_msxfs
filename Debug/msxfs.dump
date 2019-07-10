@@ -1,0 +1,235 @@
+Turbo Dump  Version 6.5.4.0 Copyright (c) 1988-2016 Embarcadero Technologies, Inc.
+                     Display of File msxfs.dll
+
+Old Executable Header
+
+DOS File Size                                       AA00h  ( 43520. )
+Load Image Size                                      450h  (  1104. )
+Relocation Table entry count                          0000h  (     0. )
+Relocation Table address                              0040h  (    64. )
+Size of header record      (in paragraphs)            0004h  (     4. )
+Minimum Memory Requirement (in paragraphs)            0000h  (     0. )
+Maximum Memory Requirement (in paragraphs)            FFFFh  ( 65535. )
+File load checksum                                    0000h  (     0. )
+Overlay Number                                        0000h  (     0. )
+
+Initial Stack Segment  (SS:SP)			  0000:00B8
+Program Entry Point    (CS:IP)			  0000:0000
+
+
+Portable Executable (PE) File
+
+Header base: 000000E8
+
+CPU type                 80386
+Flags                    2102 [ executable linenumbers symbols backwards 32bit library ]
+DLL flags                0140 [ DynamicBase NXCompat ]
+Linker Version           E.15
+Time stamp               5D259D88 : Wed Jul 10 16:10:48 2019
+O/S Version              6.0
+User Version             0.0
+Subsystem Version        6.0
+Subsystem                0002 [ Windows GUI ]
+Object count             00000009
+Symbols offset           00000000
+Symbols count            00000000
+Optional header size     00E0
+Magic #                  10B
+Code size                00006600
+Init Data size           00004600
+Uninit Data size         00000000
+Entry RVA                0001122B
+Image base               10000000
+Code base                00001000
+Data base                00001000
+Object/File align        00001000/00000200
+Reserved                 00000000
+Image size               00021000
+Header size              00000400
+Checksum                 00000000
+Stack reserve/commit     00100000/00001000
+Heap reserve/commit      00100000/00001000
+Number interesting RVAs  00000010
+Name                   RVA       Size  
+------------------  --------  --------
+Exports             00019E00  00000587
+Imports             0001C178  00000050
+Resources           0001F000  00000326
+Exceptions          00000000  00000000
+Security            00000000  00000000
+Fixups              00020000  00000430
+Debug               00019280  00000038
+Description         00000000  00000000
+Global Ptr          00000000  00000000
+TLS                 00000000  00000000
+Callbacks           000192B8  00000040
+Bound Imports       00000000  00000000
+Import Addr Table   0001C000  00000178
+Delayed Imports     00000000  00000000
+COM Runtime         00000000  00000000
+reserved            00000000  00000000
+
+Object table:
+#   Name              VirtSize    RVA     PhysSize  Phys off  Flags   
+--  --------          --------  --------  --------  --------  --------
+01  .textbss          00010000  00001000  00000000  00000000  E00000A0 [CERUW]
+02  .text             00006409  00011000  00006600  00000400  60000020 [CER]
+03  .rdata            00002387  00018000  00002400  00006A00  40000040 [IR]
+04  .data             00000634  0001B000  00000200  00008E00  C0000040 [IRW]
+05  .idata            000008D0  0001C000  00000A00  00009000  40000040 [IR]
+06  .msvcjmc          00000116  0001D000  00000200  00009A00  C0000040 [IRW]
+07  .00cfg            00000104  0001E000  00000200  00009C00  40000040 [IR]
+08  .rsrc             00000326  0001F000  00000400  00009E00  40000040 [IR]
+09  .reloc            00000627  00020000  00000800  0000A200  42000040 [DIR]
+
+Key to section flags:
+  C - contains code
+  D - discardable
+  E - executable
+  I - contains initialized data
+  R - readable
+  U - contains uninitialized data
+  W - writeable
+
+******************************************************************************
+Section:             Import
+File Offset:         00009000 (36864)
+  ImportLookUpTblRVA:0001C260
+  Time Stamp:        00000000
+  Forwarder Chain:   00000000 (index of first forwarder reference)
+
+Imports from VCRUNTIME140D.dll
+    (hint = 002E) __vcrt_GetModuleFileNameW
+    (hint = 0035) _except_handler4_common
+    (hint = 0046) memcpy
+    (hint = 0048) memset
+    (hint = 0025) __std_type_info_destroy_list
+    (hint = 002F) __vcrt_GetModuleHandleW
+    (hint = 0031) __vcrt_LoadLibraryExW
+
+Imports from ucrtbased.dll
+    (hint = 057F) wcscpy_s
+    (hint = 03E5) _wsplitpath_s
+    (hint = 0566) terminate
+    (hint = 00CA) _cexit
+    (hint = 00E7) _crt_at_quick_exit
+    (hint = 00E8) _crt_atexit
+    (hint = 010C) _execute_onexit_table
+    (hint = 02E2) _register_onexit_function
+    (hint = 0197) _initialize_onexit_table
+    (hint = 0196) _initialize_narrow_environment
+    (hint = 00DC) _configure_narrow_argv
+    (hint = 03C9) _wmakepath_s
+    (hint = 008E) __stdio_common_vsprintf_s
+    (hint = 0545) strcat_s
+    (hint = 0549) strcpy_s
+    (hint = 019A) _initterm_e
+    (hint = 0199) _initterm
+    (hint = 0015) _CrtDbgReportW
+    (hint = 0014) _CrtDbgReport
+    (hint = 04F9) malloc
+    (hint = 04A7) free
+    (hint = 02EE) _seh_filter_dll
+
+Imports from KERNEL32.dll
+    (hint = 0261) GetLastError
+    (hint = 037F) IsDebuggerPresent
+    (hint = 0462) RaiseException
+    (hint = 03EF) MultiByteToWideChar
+    (hint = 05FE) WideCharToMultiByte
+    (hint = 044D) QueryPerformanceCounter
+    (hint = 0218) GetCurrentProcessId
+    (hint = 058C) TerminateProcess
+    (hint = 0217) GetCurrentProcess
+    (hint = 02AE) GetProcAddress
+    (hint = 01AB) FreeLibrary
+    (hint = 05CE) VirtualQuery
+    (hint = 02B4) GetProcessHeap
+    (hint = 0349) HeapFree
+    (hint = 0345) HeapAlloc
+    (hint = 021C) GetCurrentThreadId
+    (hint = 0278) GetModuleHandleW
+    (hint = 0386) IsProcessorFeaturePresent
+    (hint = 02D0) GetStartupInfoW
+    (hint = 056D) SetUnhandledExceptionFilter
+    (hint = 05AD) UnhandledExceptionFilter
+    (hint = 0363) InitializeSListHead
+    (hint = 02E9) GetSystemTimeAsFileTime
+
+******************************************************************************
+Section:             Exports
+File Offset:         00006A00 (27136)
+  Flags:             00000000
+  Time Stamp:        FFFFFFFF : Thu Jan  1 07:59:59 1970
+  Major Version:     0000
+  Minor Version:     0000
+
+Exports from MSXFS.dll
+  37 exported name(s), 37 export addresse(s).  Ordinal base is 1.
+  Sorted by Name:
+    RVA      Ord. Hint Name
+    -------- ---- ---- ----
+    00011055    1 0000 WFMAllocateBuffer
+    00011375    2 0001 WFMAllocateMore
+    00011113    3 0002 WFMFreeBuffer
+    00011154    4 0003 WFMGetTraceLevel
+    00011186    5 0004 WFMKillTimer
+    000111EF    6 0005 WFMMakeResult
+    00011307    7 0006 WFMOutputTraceData
+    000110D7    8 0007 WFMReleaseDLL
+    00011140    9 0008 WFMSetTimer
+    0001132F   11 0009 WFMSetTraceLevel
+    00011357   12 000A WFSAsyncClose
+    00011280   13 000B WFSAsyncDeregister
+    00011014   14 000C WFSAsyncExecute
+    00011226   15 000D WFSAsyncGetInfo
+    000110FF   16 000E WFSAsyncLock
+    000112AD   17 000F WFSAsyncOpen
+    000111F9   18 0010 WFSAsyncRegister
+    0001137F   19 0011 WFSAsyncUnlock
+    00011163   20 0012 WFSCancelAsyncRequest
+    0001124E   21 0013 WFSCancelBlockingCall
+    000110F5   22 0014 WFSCleanUp
+    00011339   23 0015 WFSClose
+    00011203   24 0016 WFSCreateAppHandle
+    00011221   25 0017 WFSDeregister
+    000112D5   26 0018 WFSDestroyAppHandle
+    0001107D   27 0019 WFSExecute
+    0001118B   28 001A WFSFreeResult
+    0001112C   29 001B WFSGetInfo
+    000111A4   10 001C WFSGetSCode
+    000112F8   30 001D WFSIsBlocking
+    000110CD   31 001E WFSLock
+    00011109   32 001F WFSOpen
+    000110B4   33 0020 WFSRegister
+    000111EA   34 0021 WFSSetBlockingHook
+    0001100A   35 0022 WFSStartUp
+    00011005   36 0023 WFSUnhookBlockingHook
+    000110A5   37 0024 WFSUnlock
+
+******************************************************************************
+Section:             Resources
+File Offset:         00009E00 (40448)
+  Flags:             00000000
+  Time Stamp:        00000000
+  Major Version:     0000
+  Minor Version:     0000
+
+Resources:
+Type          Name                   Lang Id
+--------------------------------------------
+[0 named entries, 1 ID entries]
+type: Manifest (24)  (next directory @00000018)
+
+              [0 named entries, 1 ID entries]
+              type: Bitmap (2)  (next directory @00000030)
+
+                                     [0 named entries, 1 ID entries]
+                                     type: Unknown (1033)  (data @00000048)
+                                         Offset:    0001F170
+                                         Size:      00000091
+                                         Code Page: 00000000
+                                         Reserved:  00000000
+
+
+
