@@ -162,6 +162,7 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="XFS320\XFSADMIN.H" />
     <ClInclude Include="XFS320\XFSALM.H" />
     <ClInclude Include="XFS320\XFSAPI.H" />

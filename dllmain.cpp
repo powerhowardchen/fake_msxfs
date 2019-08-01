@@ -4,8 +4,9 @@
 #include <stdlib.h>
 
 #include "XFSAPI.H"
-#include "XFSIDC.H"
 #include "XFSPIN.H"
+#include "XFSIDC.H"
+#include "XFSPTR.H"
 
 char* MemLand[] =
 {
@@ -93,6 +94,8 @@ HRESULT extern __stdcall WFSExecute(HSERVICE hService, DWORD dwCommand, LPVOID l
 			PinKey->ulDigit = InputPinKeys[i];
 			PinKey->wCompletion = 0;
 		}
+
+		return WFS_SUCCESS;
 	}
 	else if (dwCommand == WFS_CMD_IDC_READ_RAW_DATA)
 	{
@@ -116,9 +119,62 @@ HRESULT extern __stdcall WFSExecute(HSERVICE hService, DWORD dwCommand, LPVOID l
 		buffer->fwWriteMethod = 0;
 
 		array[1] = 0;
+
+		return WFS_SUCCESS;
+	}
+	else if (dwCommand == WFS_CMD_PTR_LOAD_DEFINITION)
+		return WFS_SUCCESS;
+	else if (dwCommand == WFS_CMD_PTR_READ_FORM)
+		return WFS_SUCCESS;
+	else if (dwCommand == WFS_CMD_PTR_PRINT_FORM)
+	{
+		WFSPTRPRINTFORM* pwfsPrintForm = (WFSPTRPRINTFORM*)lpCmdData;
+
+		WFSPTRPRINTFORM* dumpPrintForm = (WFSPTRPRINTFORM*)malloc(sizeof(WFSPTRPRINTFORM));
+
+		if (!dumpPrintForm)
+			return WFS_ERR_INTERNAL_ERROR;
+
+		memcpy(dumpPrintForm, pwfsPrintForm, sizeof(WFSPTRPRINTFORM));
+
+		int len;
+		
+		if (pwfsPrintForm->lpszFormName == 0)
+			dumpPrintForm->lpszFormName = 0;
+		else {
+			len = 0;
+			for (char* ch = pwfsPrintForm->lpszFormName; *ch != '\0'; ch++) 
+				len++;
+
+			if (len > 0) {
+				len++;
+				dumpPrintForm->lpszFormName = (LPSTR)malloc(len);
+				if (!dumpPrintForm->lpszFormName)
+					return WFS_ERR_INTERNAL_ERROR;
+				memcpy(dumpPrintForm->lpszFormName, pwfsPrintForm->lpszFormName, len);
+			}
+		}
+
+		if (pwfsPrintForm->lpszMediaName == 0)
+			dumpPrintForm->lpszMediaName = 0;
+		else {
+			len = 0;
+			for (char* ch = pwfsPrintForm->lpszMediaName; *ch != '\0'; ch++) 
+				len++;
+
+			if (len > 0) {
+				len++;
+				dumpPrintForm->lpszMediaName = (LPSTR)malloc(len);
+				if (!dumpPrintForm->lpszMediaName)
+					return WFS_ERR_INTERNAL_ERROR;
+				memcpy(dumpPrintForm->lpszMediaName, pwfsPrintForm->lpszMediaName, len);
+			}
+		}
+
+		return WFS_SUCCESS;
 	}
 
-	return WFS_SUCCESS;
+	return WFS_ERR_INVALID_COMMAND;
 }
 
 HRESULT extern __stdcall WFSOpen(LPSTR lpszLogicalName, HAPP hApp, LPSTR lpszAppID, DWORD dwTraceLevel, DWORD dwTimeOut, DWORD dwSrvcVersionsRequired, LPWFSVERSION lpSrvcVersion, LPWFSVERSION lpSPIVersion, LPHSERVICE lphService)
@@ -285,11 +341,13 @@ HRESULT extern __stdcall WFMSetTraceLevel(HSERVICE hService, DWORD dwTraceLevel)
 
 HRESULT extern __stdcall WFMAllocateBuffer(ULONG ulSize, ULONG ulFlags, LPVOID* lppvData)
 {
+	memset(*lppvData, 0, ulSize);
 	return WFS_SUCCESS;
 }
 
 HRESULT extern __stdcall WFMAllocateMore(ULONG ulSize, LPVOID lpvOriginal, LPVOID* lppvData)
 {
+	memset(*lppvData, 0, ulSize);
 	return WFS_SUCCESS;
 }
 
